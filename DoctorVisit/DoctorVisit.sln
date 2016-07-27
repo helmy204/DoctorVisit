@@ -1,0 +1,57 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Libraries", "Libraries", "{1AC2977B-67F4-4C0E-8CDB-AF443FAF8F7A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{88E233A4-A207-4BB6-81B5-89800C32B86C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DoctorVisit.Web", "DoctorVisit.Web\DoctorVisit.Web.csproj", "{33D5E39E-EC57-4E76-8777-872AA77033E1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DoctorVisit.Core", "DoctorVisit.Core\DoctorVisit.Core.csproj", "{268F8938-602B-46D1-956B-2E1336BF0A1E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DoctorVisit.Service", "DoctorVisit.Service\DoctorVisit.Service.csproj", "{D4000C7A-37E8-4701-83A3-804866CAF23A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DoctorVisit.Data", "DoctorVisit.Data\DoctorVisit.Data.csproj", "{089EAE18-AD9E-4B9E-9E82-5914E4F0F0E4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DoctorVisit.Web.Framework", "DoctorVisit.Web.Framework\DoctorVisit.Web.Framework.csproj", "{98A486C9-D490-445E-AAEB-20468C185D24}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{33D5E39E-EC57-4E76-8777-872AA77033E1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{33D5E39E-EC57-4E76-8777-872AA77033E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{33D5E39E-EC57-4E76-8777-872AA77033E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{33D5E39E-EC57-4E76-8777-872AA77033E1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{268F8938-602B-46D1-956B-2E1336BF0A1E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{268F8938-602B-46D1-956B-2E1336BF0A1E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{268F8938-602B-46D1-956B-2E1336BF0A1E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{268F8938-602B-46D1-956B-2E1336BF0A1E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D4000C7A-37E8-4701-83A3-804866CAF23A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D4000C7A-37E8-4701-83A3-804866CAF23A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D4000C7A-37E8-4701-83A3-804866CAF23A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D4000C7A-37E8-4701-83A3-804866CAF23A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{089EAE18-AD9E-4B9E-9E82-5914E4F0F0E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{089EAE18-AD9E-4B9E-9E82-5914E4F0F0E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{089EAE18-AD9E-4B9E-9E82-5914E4F0F0E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{089EAE18-AD9E-4B9E-9E82-5914E4F0F0E4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{98A486C9-D490-445E-AAEB-20468C185D24}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{98A486C9-D490-445E-AAEB-20468C185D24}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{98A486C9-D490-445E-AAEB-20468C185D24}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{98A486C9-D490-445E-AAEB-20468C185D24}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{33D5E39E-EC57-4E76-8777-872AA77033E1} = {88E233A4-A207-4BB6-81B5-89800C32B86C}
+		{268F8938-602B-46D1-956B-2E1336BF0A1E} = {1AC2977B-67F4-4C0E-8CDB-AF443FAF8F7A}
+		{D4000C7A-37E8-4701-83A3-804866CAF23A} = {1AC2977B-67F4-4C0E-8CDB-AF443FAF8F7A}
+		{089EAE18-AD9E-4B9E-9E82-5914E4F0F0E4} = {1AC2977B-67F4-4C0E-8CDB-AF443FAF8F7A}
+		{98A486C9-D490-445E-AAEB-20468C185D24} = {88E233A4-A207-4BB6-81B5-89800C32B86C}
+	EndGlobalSection
+EndGlobal
