@@ -44,6 +44,7 @@
     <Compile Include="Basis\BaseEntity.cs" />
     <Compile Include="Basis\IWorkContext.cs" />
     <Compile Include="Domain\Users\User.cs" />
+    <Compile Include="Domain\Users\UserLoginResults.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

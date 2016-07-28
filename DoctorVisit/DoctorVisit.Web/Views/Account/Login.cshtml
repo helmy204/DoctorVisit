@@ -1,4 +1,8 @@
-﻿@{
+﻿@model AccountLogin
+
+@using DoctorVisit.Web.Models.Account;
+
+@{
     ViewBag.Title = "Login";
     Layout = "~/Views/Shared/_LayoutAccount.cshtml";
 }
@@ -6,6 +10,8 @@
 @section styles{
     <!-- iCheck -->
     <link rel="stylesheet" href="~/Content/AdminLTE/plugins/iCheck/square/blue.css">
+
+    <link href="~/Content/Validation.css" rel="stylesheet" />
 }
 
 <div class="login-box">
@@ -14,31 +20,37 @@
     </div>
     <!-- /.login-logo -->
     <div class="login-box-body">
-        @*<p class="login-box-msg">Sign in to start your session</p>*@
-        @*<form action="../../index2.html" method="post">
-                <div class="form-group has-feedback">
-                    <input type="email" class="form-control" placeholder="Email">
-                    <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
-                </div>
-                <div class="form-group has-feedback">
-                    <input type="password" class="form-control" placeholder="Password">
-                    <span class="glyphicon glyphicon-lock form-control-feedback"></span>
-                </div>
-                <div class="row">
-                    <div class="col-xs-8">
-                        <div class="checkbox icheck">
-                            <label>
+        <p class="login-box-msg">Sign in to start your session</p>
+        @using (Html.BeginForm("Login", "Account", FormMethod.Post))
+        {
+            @Html.AntiForgeryToken();
+
+            <div class="form-group has-feedback">
+                @Html.TextBoxFor(l => l.UsernameOrEmail, new { @class = "form-control", placeholder = "Username Or Email" })
+                <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+                @Html.ValidationMessageFor(l => l.UsernameOrEmail)
+            </div>
+            <div class="form-group has-feedback">
+                @Html.PasswordFor(l => l.Password, new { @class = "form-control", placeholder = "Password" })
+                <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+                @Html.ValidationMessageFor(l => l.Password)
+            </div>
+            <div class="row">
+                <div class="col-xs-8">
+                    <div class="checkbox icheck">
+                        @*<label>
                                 <input type="checkbox"> Remember Me
-                            </label>
-                        </div>
+                            </label>*@
                     </div>
-                    <!-- /.col -->
-                    <div class="col-xs-4">
-                        <button type="submit" class="btn btn-primary btn-block btn-flat">Sign In</button>
-                    </div>
-                    <!-- /.col -->
                 </div>
-            </form>*@
+                <!-- /.col -->
+                <div class="col-xs-4">
+                    <button type="submit" class="btn btn-primary btn-block btn-flat">Sign In</button>
+                </div>
+                <!-- /.col -->
+            </div>
+        }
+
         @*<div class="social-auth-links text-center">
                 <p>- OR -</p>
                 <a href="#" class="btn btn-block btn-social btn-facebook btn-flat">

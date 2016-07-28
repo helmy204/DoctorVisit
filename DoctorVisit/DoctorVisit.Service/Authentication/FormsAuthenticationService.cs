@@ -15,14 +15,20 @@ namespace DoctorVisit.Service.Authentication
     /// </summary>
     public partial class FormsAuthenticationService : IAuthenticationService
     {
+        #region Fields
+
         private readonly HttpContextBase _httpContext;
+        private readonly TimeSpan _expirationTimeSpan;
         private readonly IUserService _userService;
+
+        #endregion Fields
 
         public FormsAuthenticationService(HttpContextBase httpContext,
             IUserService userService)
         {
             _httpContext = httpContext;
             _userService = userService;
+            _expirationTimeSpan = FormsAuthentication.Timeout;
         }
 
 
@@ -46,6 +52,48 @@ namespace DoctorVisit.Service.Authentication
             return user;
         }
 
+        /// <summary>
+        /// Sign in
+        /// </summary>
+        /// <param name="user">User</param>
+        /// <param name="createPersistentCookie">A value indicating whether to create a persistent cookie.</param>
+        public void SignIn(User user,bool createPersistentCookie)
+        {
+            var now = DateTime.Now;
+
+            var ticket = new FormsAuthenticationTicket(
+                1, // version
+                user.Username,
+                now,
+                now.Add(_expirationTimeSpan),
+                createPersistentCookie,
+                user.Username,
+                FormsAuthentication.FormsCookiePath);
+
+            var encryptedTicket = FormsAuthentication.Encrypt(ticket);
+
+            var cookie = new HttpCookie(FormsAuthentication.FormsCookieName, encryptedTicket);
+            cookie.HttpOnly = true;
+
+            if (ticket.IsPersistent)
+                cookie.Expires = ticket.Expiration;
+
+            cookie.Path = FormsAuthentication.FormsCookiePath;
+
+            if (FormsAuthentication.CookieDomain != null)
+                cookie.Domain = FormsAuthentication.CookieDomain;
+
+            _httpContext.Response.Cookies.Add(cookie);
+
+        }
+
+        /// <summary>
+        /// Sign out
+        /// </summary>
+        public void SignOut()
+        {
+            FormsAuthentication.SignOut();
+        }
 
         /// <summary>
         /// Get authenticated user

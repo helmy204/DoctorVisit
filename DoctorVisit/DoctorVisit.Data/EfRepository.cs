@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.Entity.Validation;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -33,6 +34,41 @@ namespace DoctorVisit.Data
 
         #endregion Ctor
 
+        #region Methods
+
+        /// <summary>
+        /// Insert entity
+        /// </summary>
+        /// <param name="entity">Entity</param>
+        public void Insert(T entity)
+        {
+            try
+            {
+                if(entity==null)
+                    throw new ArgumentNullException("entity");
+
+                this.Entities.Add(entity);
+                this._context.SaveChanges();
+            }
+            catch (DbEntityValidationException dbEx)
+            {
+                var message = string.Empty;
+
+                foreach (var ValidationErrors in dbEx.EntityValidationErrors)
+                {
+                    foreach (var ValidationError in ValidationErrors.ValidationErrors)
+                    {
+                        message += string.Format("Property: {0} Error: {1}", ValidationError.PropertyName, ValidationError.ErrorMessage) + Environment.NewLine;
+                    }
+                }
+
+                var fail = new Exception(message, dbEx);
+                throw fail;
+            }
+        }
+
+        #endregion Methods
+
         #region Properties
 
         /// <summary>
@@ -59,6 +95,8 @@ namespace DoctorVisit.Data
                 return _entities;
             }
         }
+
+     
 
         #endregion Properties
     }

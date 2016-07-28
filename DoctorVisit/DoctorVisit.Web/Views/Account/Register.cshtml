@@ -10,6 +10,8 @@
 @section styles{
     <!-- iCheck -->
     <link rel="stylesheet" href="~/Content/AdminLTE/plugins/iCheck/square/blue.css">
+
+    <link href="~/Content/Validation.css" rel="stylesheet" />
 }
 
 <div class="register-box">
@@ -18,26 +20,29 @@
     </div>
     <div class="register-box-body">
         <p class="login-box-msg">Register a new membership</p>
-        @using (Html.BeginForm("Register","Account",FormMethod.Post))
+        @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { id = "frmRegister" }))
         {
             @Html.AntiForgeryToken()
 
             <div class="form-group has-feedback">
-                @Html.TextBoxFor(r => r.Email, new { @class = "form-control", placeholder ="Email" })
+                @Html.TextBoxFor(r => r.Email, new { @class = "form-control", placeholder = "Email" })
                 <span class="glyphicon glyphicon-user form-control-feedback"></span>
+                @Html.ValidationMessageFor(r => r.Email)
             </div>
             <div class="form-group has-feedback">
                 @Html.TextBoxFor(r => r.Username, new { @class = "form-control", placeholder = "Username" })
                 <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+                @Html.ValidationMessageFor(r => r.Username)
             </div>
             <div class="form-group has-feedback">
-                @Html.TextBoxFor(r => r.Password, new { @class = "form-control", placeholder = "Password" })
+                @Html.PasswordFor(r => r.Password, new { @class = "form-control", placeholder = "Password" })
                 <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+                @Html.ValidationMessageFor(r => r.Password)
             </div>
             @*<div class="form-group has-feedback">
-                <input type="password" class="form-control" placeholder="Retype password">
-                <span class="glyphicon glyphicon-log-in form-control-feedback"></span>
-            </div>*@
+                    <input type="password" class="form-control" placeholder="Retype password">
+                    <span class="glyphicon glyphicon-log-in form-control-feedback"></span>
+                </div>*@
             <div class="row">
                 <div class="col-xs-8">
                     <div class="checkbox icheck">

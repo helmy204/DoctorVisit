@@ -1,0 +1,8 @@
+﻿.form-group input.input-validation-error {
+    border-color: #dd4b39;
+    box-shadow: none;
+}
+
+.form-group .field-validation-error {
+    color: #dd4b39;
+}

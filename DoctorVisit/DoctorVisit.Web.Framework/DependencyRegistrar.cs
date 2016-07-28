@@ -1,6 +1,8 @@
 ﻿using DoctorVisit.Core.Basis;
 using DoctorVisit.Data;
 using DoctorVisit.Service.Authentication;
+using DoctorVisit.Service.Common;
+using DoctorVisit.Service.Security;
 using DoctorVisit.Service.Users;
 using Microsoft.Practices.Unity;
 using System;
@@ -58,8 +60,15 @@ namespace DoctorVisit.Web.Framework
             container.RegisterType<IAuthenticationService, FormsAuthenticationService>();
             container.RegisterType<IDoctorVisitPrincipalService, DoctorVisitPrincipalService>();
 
+            // security
+            container.RegisterType<IEncryptionService, EncryptionService>();
+
+            // common
+            container.RegisterType<IDoctorVisitResult, DoctorVisitResult>();
+
             // users
             container.RegisterType<IUserService, UserService>();
+            container.RegisterType<IUserRegistrationService, UserRegistrationService>();
         }
     }
 }

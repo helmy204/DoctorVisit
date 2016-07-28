@@ -45,6 +45,15 @@ namespace DoctorVisit.Service.Users
             return user;
         }
 
+        /// <summary>
+        /// Register new user
+        /// </summary>
+        /// <param name="user">User</param>
+        public void RegisterUser(User user)
+        {
+            _userRepository.Insert(user);
+        }
+
         #endregion Methods
     }
 }

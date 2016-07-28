@@ -6,12 +6,20 @@ using System.Web.Mvc;
 
 namespace DoctorVisit.Web.Controllers
 {
-    public class ReservationController : Controller
+    public class BookingController : Controller
     {
-        // GET: Reservation
+        // GET: Booking
         public ActionResult Index()
         {
             return View();
+        }
+
+        [HttpPost]
+        public ActionResult Save(string start,string end)
+        {
+
+
+            return Json("success");
         }
     }
 }

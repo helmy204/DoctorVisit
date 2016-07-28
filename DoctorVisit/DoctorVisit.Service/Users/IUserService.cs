@@ -19,5 +19,11 @@ namespace DoctorVisit.Service.Users
         /// <param name="usernameOrEmail">Username or Email</param>
         /// <returns>User</returns>
         User GetUserByUsernameOrEmail(string usernameOrEmail);
+
+        /// <summary>
+        /// Register new user
+        /// </summary>
+        /// <param name="user">User</param>
+        void RegisterUser(User user);
     }
 }

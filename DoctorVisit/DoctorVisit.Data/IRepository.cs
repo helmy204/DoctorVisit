@@ -14,6 +14,12 @@ namespace DoctorVisit.Data
     public partial interface IRepository<T> where T : BaseEntity
     {
         /// <summary>
+        /// Insert entity
+        /// </summary>
+        /// <param name="entity">Entity</param>
+        void Insert(T entity);
+
+        /// <summary>
         /// Gets a table
         /// </summary>
         IQueryable<T> Table { get; }
